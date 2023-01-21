@@ -22,10 +22,14 @@ const personalMovieDB = {
     privat: false
 }
 
-for (let i = 0; i < 2; i++){
-const lastFilm = prompt('Один из последних просмотренных фильмов?', 'Человек-гандон');
-const rateFilm = prompt('На сколько оцените его?', '5');
-personalMovieDB.movies[lastFilm] = rateFilm;
+first: for (let i = 0; i < 2; i++) {
+    const lastFilm = prompt('Один из последних просмотренных фильмов?', 'Человек-гандон');
+    if (lastFilm === null || lastFilm === '' || lastFilm.length > 50) {
+        i--;
+        continue first;
+    }
+    const rateFilm = prompt('На сколько оцените его?', '5');
+    personalMovieDB.movies[lastFilm] = rateFilm;
 }
 
 console.log(personalMovieDB.movies);
