@@ -29,10 +29,24 @@ first: for (let i = 0; i < 2; i++) {
         continue first;
     }
     const rateFilm = prompt('На сколько оцените его?', '5');
+    if (rateFilm === null || rateFilm === '') {
+        i--;
+        continue first;
+    }
     personalMovieDB.movies[lastFilm] = rateFilm;
 }
 
-console.log(personalMovieDB.movies);
+// let lastFilm;
+// let rateFilm;
+// do { 
+//     lastFilm = prompt('Один из последних просмотренных фильмов?', 'Человек-гандон');
+//     rateFilm = prompt('На сколько оцените его?', '5');
+    
+// }
+// while(lastFilm == null || lastFilm == '' || lastFilm.length > 50 &&  )
+// personalMovieDB.movies[lastFilm] = rateFilm;
+// console.log(personalMovieDB.movies);
+
 if (personalMovieDB.count<10){
     console.log("Просмотрено довольно мало фильмов");
 }else if (personalMovieDB.count>=10 && personalMovieDB.count <=30){
